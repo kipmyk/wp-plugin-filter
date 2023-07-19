@@ -123,11 +123,13 @@ class MK_WP_Plugin_Filter
                 <?php wp_nonce_field('custom_plugin_filter_nonce', 'custom_plugin_filter_nonce'); ?>
                 <table class="form-table">
                     <tr>
-                        <th scope="row"><label for="plugins_to_hide"><?php echo esc_html__('Select Plugins to Hide', 'wp-plugin-filter'); ?></label></th>
+                        <th scope="row"><?php echo esc_html__('Select Plugins to Hide', 'wp-plugin-filter'); ?></th>
                         <td>
+                            <button type="button" id="toggle_select_all" class="button"><?php echo esc_html__('Toggle to select all', 'wp-plugin-filter'); ?></button>
+                            <br><br>
                             <?php foreach ($plugins as $plugin_file => $plugin_data) : ?>
                                 <label>
-                                    <input type="checkbox" name="plugins_to_hide[]" value="<?php echo esc_attr($plugin_file); ?>" <?php checked(in_array($plugin_file, $plugins_to_hide), true); ?>>
+                                    <input type="checkbox" name="plugins_to_hide[]" value="<?php echo esc_attr($plugin_file); ?>" <?php echo in_array($plugin_file, $plugins_to_hide) ? 'checked' : ''; ?>>
                                     <?php echo esc_html($plugin_data['Name']); ?>
                                 </label>
                                 <br>
@@ -139,6 +141,31 @@ class MK_WP_Plugin_Filter
                 <?php submit_button(esc_html__('Save Settings', 'wp-plugin-filter')); ?>
             </form>
         </div>
+        <style>
+            .button {
+                margin-right: 10px;
+            }
+        </style>
+        <script>
+            (function() {
+                document.addEventListener('DOMContentLoaded', function() {
+                    const toggleSelectAll = document.getElementById('toggle_select_all');
+                    const checkboxes = document.querySelectorAll('input[name="plugins_to_hide[]"]');
+
+                    let isSelectAll = false;
+
+                    toggleSelectAll.addEventListener('click', function() {
+                        isSelectAll = !isSelectAll;
+
+                        checkboxes.forEach((checkbox) => {
+                            checkbox.checked = isSelectAll;
+                        });
+
+                        toggleSelectAll.textContent = isSelectAll ? '<?php echo esc_html__('Toggle to unselect all', 'wp-plugin-filter'); ?>' : '<?php echo esc_html__('Toggle to select all', 'wp-plugin-filter'); ?>';
+                    });
+                });
+            })();
+        </script>
         <?php
     }
 
