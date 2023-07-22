@@ -59,7 +59,7 @@ class MK_WP_Plugin_Filter
     {
         add_options_page(
             esc_html__('WP Hide Selected Settings', 'wp-plugin-filter'),
-            esc_html__('Plugin Filter', 'wp-plugin-filter'),
+            esc_html__('WP Plugin Filter', 'wp-plugin-filter'),
             'manage_options',
             'wp-plugin-filter',
             array($this, 'render_settings_page')
