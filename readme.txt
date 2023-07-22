@@ -25,7 +25,7 @@ Once activated, WP Plugin Filter provides an easy-to-use interface where you can
 
 1. Upload the `wp-plugin-filter` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Navigate to 'WP Plugin Filter' in the 'Settings' menu to configure which plugins to hide.
+3. Once you are logged in, go to Settings > WP PluginFilter. From there, you can select individual plugins to hide or use the "Toggle All" option to select all plugins and then save the changes.
 
 == Frequently Asked Questions ==
 
@@ -40,6 +40,11 @@ To unhide a plugin, go to 'WP Plugin Filter' in the 'Settings' menu, uncheck the
 = Will this plugin affect the performance of my website? =
 
 No, this plugin is lightweight and designed to have minimal impact on your website's performance. It only hides plugins from the plugin list without interfering with their functionality.
+
+== Screenshots ==
+
+1. Screenshot of WP Plugin Filter in action.
+   ![Screenshot](https://example.com/wp-content/plugins/wp-plugin-filter/assets/screenshot.png)
 
 == Changelog ==
 
