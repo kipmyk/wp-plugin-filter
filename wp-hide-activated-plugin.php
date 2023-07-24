@@ -26,8 +26,13 @@ class MK_WP_Plugin_Filter
 
         // Add the settings link to the plugin page
         add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'plugin_action_links'));
+        add_action( 'init', array($this, 'languages') );
     }
-
+ 
+   //  handle translation
+   function languages(){
+     load_plugin_textdomain( 'wp-plugin-filter', false, dirname(plugin_basename( __FILE__ )).'/languages');
+   }
     /**
      * Filter the plugins list to hide selected plugins
      *
