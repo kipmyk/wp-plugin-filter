@@ -6,6 +6,7 @@
  * Author: Mike Kipruto
  * Author URI: https://kipmyk.co.ke/
  * Text Domain: wp-plugin-filter
+ * Domain Path: /languages/
  */
 
 if (!defined('ABSPATH')) {
