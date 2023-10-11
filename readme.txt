@@ -2,7 +2,7 @@
 Contributors: mikekipruto
 Tags: plugin, filter, hide, admin, management
 Requires at least: 6.3
-Tested up to: 6.3
+Tested up to: 6.3.1
 Requires PHP: 7.0
 Stable tag: 1.0.0
 License: GPLv2 or later
