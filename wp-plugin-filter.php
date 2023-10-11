@@ -184,7 +184,7 @@ class MK_WP_Plugin_Filter
     public function plugin_action_links($links)
     {
         $settings_page = is_multisite() ? 'settings.php' : 'options-general.php';
-        $link = '<a href="' . esc_url(admin_url($settings_page) . '?page=wp-plugin-filter') . '">' . esc_html__('Settings', 'wp-plugin-filter') . '</a>';
+        $link = '<a href="<?php echo ' . esc_url(admin_url($settings_page) . '?page=wp-plugin-filter') . ' ?>"><?php echo ' . esc_html('Settings', 'wp-plugin-filter') . ' ?></a>';
         array_unshift($links, $link);
         return $links;
     }
