@@ -41,7 +41,7 @@ if (!class_exists('WP_Plugin_Filter')) {
          * Load the plugin's text domain for translation
          */
         public function load_plugin_text_domain()
-{
+        {
             load_plugin_textdomain('wp-plugin-filter', false, dirname(plugin_basename(__FILE__)) . '/languages');
         }
 
@@ -194,7 +194,7 @@ if (!class_exists('WP_Plugin_Filter')) {
      */
     public function plugin_action_links($links){
         $settings_page = is_multisite() ? 'settings.php' : 'options-general.php';
-		$link          = [ '<a href="' . esc_url( network_admin_url( $settings_page ) ) . '?page=wp-plugin-filter">' . esc_html__( 'Settings', 'wp-plugin-filter' ) . '</a>' ];
+		$link          = [ '<a href="' . esc_url(network_admin_url($settings_page) . '?page=wp-plugin-filter') . '">' . esc_html('Settings', 'wp-plugin-filter') . '</a>' ];
         return array_merge( $link, $links );
         }
     }
