@@ -13,8 +13,8 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-if (!class_exists('WP_Plugin_Filter')) {
-    class WP_Plugin_Filter
+if (!class_exists('WP_Plugin_Filter_Admin')) {
+    class WP_Plugin_Filter_Admin
     {
 
         /**
@@ -195,4 +195,4 @@ if (!class_exists('WP_Plugin_Filter')) {
         }
     }
 }
-new WP_Plugin_Filter();
+new WP_Plugin_Filter_Admin();
