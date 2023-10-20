@@ -13,8 +13,8 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-if (!class_exists('WP_Plugin_Filter_Admin')) {
-    class WP_Plugin_Filter_Admin
+if (!class_exists('WPF_AdminSettings')) {
+    class WPF_AdminSettings
     {
 
         /**
@@ -195,4 +195,4 @@ if (!class_exists('WP_Plugin_Filter_Admin')) {
         }
     }
 }
-new WP_Plugin_Filter_Admin();
+new WPF_AdminSettings();
