@@ -13,8 +13,8 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-if (!class_exists('WPF_AdminSettings')) {
-    class WPF_AdminSettings
+if (!class_exists('WPPFilter_AdminSettings')) {
+    class WPPFilter_AdminSettings
     {
 
         /**
@@ -195,4 +195,4 @@ if (!class_exists('WPF_AdminSettings')) {
         }
     }
 }
-new WPF_AdminSettings();
+new WPPFilter_AdminSettings();
