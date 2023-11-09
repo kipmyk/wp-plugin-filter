@@ -13,13 +13,13 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-if (!class_exists('WP_Plugin_Filter')) {
-    class WP_Plugin_Filter
+if (!class_exists('WPPFilter_AdminSettings')) {
+    class WPPFilter_AdminSettings
     {
 
         /**
          * Initialize the plugin
-         */
+         **/
         public function __construct()
         {
             add_filter('plugins_list', array($this, 'filter_plugins_list'));
@@ -27,8 +27,10 @@ if (!class_exists('WP_Plugin_Filter')) {
             add_action('admin_init', array($this, 'register_settings'));
             add_action('init', array($this, 'load_plugin_text_domain'));
 
-            // Add the settings link to the plugin page
-            // add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'plugin_action_links'));
+            /**
+             * Add the settings link to the plugin page
+             * 
+             * */
             add_filter(
                 is_multisite()
                 ? 'network_admin_plugin_action_links_wp-plugin-filter/wp-plugin-filter.php'
@@ -199,4 +201,4 @@ if (!class_exists('WP_Plugin_Filter')) {
         }
     }
 }
-new WP_Plugin_Filter();
+new WPPFilter_AdminSettings();
