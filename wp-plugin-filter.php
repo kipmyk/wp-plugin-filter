@@ -19,7 +19,7 @@ if (!class_exists('WPPFilter_AdminSettings')) {
 
         /**
          * Initialize the plugin
-         */
+         **/
         public function __construct()
         {
             add_filter('plugins_list', array($this, 'filter_plugins_list'));
@@ -27,8 +27,16 @@ if (!class_exists('WPPFilter_AdminSettings')) {
             add_action('admin_init', array($this, 'register_settings'));
             add_action('init', array($this, 'load_plugin_text_domain'));
 
-            // Add the settings link to the plugin page
-            add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'plugin_action_links'));
+            /**
+             * Add the settings link to the plugin page
+             * 
+             * */
+            add_filter(
+                is_multisite()
+                ? 'network_admin_plugin_action_links_wp-plugin-filter/wp-plugin-filter.php'
+                : 'plugin_action_links_wp-plugin-filter/wp-plugin-filter.php',
+                [ $this, 'plugin_action_links' ]
+            );
         }
 
         /**
@@ -186,12 +194,10 @@ if (!class_exists('WPPFilter_AdminSettings')) {
      * @param array $links The existing links
      * @return array The modified links
      */
-    public function plugin_action_links($links)
-    {
+    public function plugin_action_links($links){
         $settings_page = is_multisite() ? 'settings.php' : 'options-general.php';
-        $link = '<a href="<?php echo ' . esc_url(admin_url($settings_page) . '?page=wp-plugin-filter') . ' ?>"><?php echo ' . esc_html('Settings', 'wp-plugin-filter') . ' ?></a>';
-        array_unshift($links, $link);
-        return $links;
+		$link          = [ '<a href="' . esc_url(network_admin_url($settings_page) . '?page=wp-plugin-filter') . '">' . esc_html('Settings', 'wp-plugin-filter') . '</a>' ];
+        return array_merge( $link, $links );
         }
     }
 }
